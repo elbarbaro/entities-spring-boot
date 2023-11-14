@@ -38,8 +38,8 @@ public class EntitiesDemoApplication implements CommandLineRunner {
 		Pet newton = petRepository.findById(1L).get();
 
 		Person leo = new Person();
-		leo.setFirstName("Pedro");
-		leo.setLastName("Lopez");
+		leo.setFirstName("Maria");
+		leo.setLastName("Salas");
 		leo.setPet(newton);
 
 		Person personCreated = personRepository.save(leo);

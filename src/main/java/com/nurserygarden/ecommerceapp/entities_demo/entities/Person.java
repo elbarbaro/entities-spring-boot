@@ -15,7 +15,7 @@ public class Person {
     @Column(name = "last_name")
     private String lastName;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "pet_id")
     private Pet pet;
 
