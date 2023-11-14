@@ -8,7 +8,9 @@ import java.time.OffsetDateTime;
 public class PersonResponse {
 
     private Long id;
+    @JsonProperty("first_name")
     private String firstName;
+    @JsonProperty("last_name")
     private String lastName;
 
     @JsonFormat(pattern = "YYYY-MM-dd HH:mm:ss")

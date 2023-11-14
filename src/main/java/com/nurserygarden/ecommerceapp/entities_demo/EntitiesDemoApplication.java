@@ -16,8 +16,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class EntitiesDemoApplication implements CommandLineRunner {
 
-	private PersonRepository personRepository;
-	private PetRepository petRepository;
+	private final PersonRepository personRepository;
+	private final PetRepository petRepository;
 
 	public EntitiesDemoApplication(PersonRepository personRepository, PetRepository petRepository) {
 		this.personRepository = personRepository;
@@ -44,8 +44,6 @@ public class EntitiesDemoApplication implements CommandLineRunner {
 
 		Person personCreated = personRepository.save(leo);
 		PersonResponse personResponse = toPersonResponse(personCreated);
-
-
 
 		System.out.println("Save person: " + objectMapper.writeValueAsString(personResponse));
 	}
