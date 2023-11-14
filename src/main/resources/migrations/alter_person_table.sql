@@ -1,0 +1,1 @@
+alter table persons add column pet_id int not null default 1;

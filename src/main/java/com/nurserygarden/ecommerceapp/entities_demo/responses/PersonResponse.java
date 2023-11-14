@@ -19,6 +19,9 @@ public class PersonResponse {
     @JsonProperty("updated_at")
     private OffsetDateTime updatedAt;
 
+    @JsonProperty("pet_name")
+    private String petName;
+
     public PersonResponse() {}
 
     public Long getId() {
@@ -59,5 +62,13 @@ public class PersonResponse {
 
     public void setUpdatedAt(OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getPetName() {
+        return petName;
+    }
+
+    public void setPetName(String petName) {
+        this.petName = petName;
     }
 }

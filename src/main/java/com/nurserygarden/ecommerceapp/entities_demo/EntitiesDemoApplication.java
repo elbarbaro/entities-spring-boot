@@ -35,23 +35,19 @@ public class EntitiesDemoApplication implements CommandLineRunner {
 		objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 		objectMapper.registerModule(new JavaTimeModule());
 
+		Pet newton = petRepository.findById(1L).get();
+
 		Person leo = new Person();
-		leo.setFirstName("Leo");
+		leo.setFirstName("Pedro");
 		leo.setLastName("Lopez");
+		leo.setPet(newton);
 
 		Person personCreated = personRepository.save(leo);
-
-		PersonResponse response = toPersonResponse(personCreated);
-
-		Pet newton = new Pet();
-		newton.setName("Newton");
-
-		Pet petCreated = petRepository.save(newton);
-		PetResponse petResponse = toPetResponse(petCreated);
+		PersonResponse personResponse = toPersonResponse(personCreated);
 
 
-		System.out.println("Save person: " + objectMapper.writeValueAsString(response));
-		System.out.println("Save pet: " + objectMapper.writeValueAsString(petResponse));
+
+		System.out.println("Save person: " + objectMapper.writeValueAsString(personResponse));
 	}
 
 	private PersonResponse toPersonResponse(Person person) {
@@ -61,6 +57,7 @@ public class EntitiesDemoApplication implements CommandLineRunner {
 		personResponse.setLastName(person.getLastName());
 		personResponse.setCreatedAt(person.getCreatedAt());
 		personResponse.setUpdatedAt(person.getUpdatedAt());
+		personResponse.setPetName(person.getPet().getName());
 		return personResponse;
 	}
 

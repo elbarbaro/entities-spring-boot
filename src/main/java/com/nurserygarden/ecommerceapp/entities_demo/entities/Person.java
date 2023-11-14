@@ -14,6 +14,11 @@ public class Person {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
+
+    @OneToOne
+    @JoinColumn(name = "pet_id")
+    private Pet pet;
+
     @Column(name = "created_at")
     private OffsetDateTime createdAt = OffsetDateTime.now();
     @Column(name = "updated_at")
@@ -59,5 +64,13 @@ public class Person {
 
     public void setUpdatedAt(OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public Pet getPet() {
+        return pet;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
     }
 }
